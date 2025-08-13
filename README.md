@@ -3,13 +3,13 @@
 ##########################
 These version has been edited by Kirsten Tempest.
 
-## Aim of version 3 (archive_3): ##
+# Aim of version 3 (archive_3): 
 - Extract latent features from each MLP by storing them in the state. 
 - Save original and updated latent features within Graphcast call. 
 
 # Main changes for version 3: 
 
-- Added in graphcast.py:
+## - Added in graphcast.py:
 
 def save_latents(x):
     x_np = np.array(x).astype(np.float32)  # create np array from jax array 
@@ -35,14 +35,13 @@ def save_updated_latents(x):
 
 ##########################
 
- - Added in deep_typed_graph_net.py: 
+ ## - Added in deep_typed_graph_net.py: 
  
  Added within DeepTypedGraphNet __call__ method: 
  
  latent_graphs_m = self._process(latent_graph_0, processor_networks)
-
- # Compute outputs from the last latent graph (if applicable).
- return self._output(latent_graphs_m[-1], decoder_network), latent_graphs_m
+ 
+ return self._output(latent_graphs_m[-1], decoder_network), latent_graphs_m # Compute outputs from the last latent graph (if applicable).
  
 Updated DeepTypedGraphNet _process method:
 
@@ -50,8 +49,7 @@ Updated DeepTypedGraphNet _process method:
       self,
       latent_graph_0: typed_graph.TypedGraph,
       processor_networks: List[GraphToGraphNetwork],
-  ) -> typed_graph.TypedGraph:
-    # Processes the latent graph with several steps of message passing.
+  ) -> typed_graph.TypedGraph: # Processes the latent graph with several steps of message passing.
 
     # Do `num_message_passing_steps` with each of the `self._processor_networks`
     # with unshared weights, and repeat that `self._num_processor_repetitions`
