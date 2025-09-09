@@ -3,6 +3,9 @@
 ##########################
 These version has been edited by Kirsten Tempest.
 
+# Version "graphcast_extract_graph_structures"
+- graphcast_extract_graph_structures.ipynb shows how to extract graph structures and plot them. No edits to underlying code necessary. 
+
 # Aim of version 3 (archive_3): 
 - Extract latent features from each MLP by storing them in the state. 
 - Save original and updated latent features within Graphcast call. 
